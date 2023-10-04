@@ -9,7 +9,7 @@
 set -e
 
 DEVICE=common
-VENDOR=xiaomi/sweet-misound
+VENDOR=xiaomi/spes-misound
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
@@ -28,12 +28,12 @@ source "${HELPER}"
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" true
 
 # Warning headers and guards
-write_headers "sweet"
-sed -i 's|vendor/xiaomi/sweet-misound/|vendor/xiaomi/sweet-misound/common|g' "${PRODUCTMK}"
-sed -i 's|device/xiaomi/sweet-misound//setup-makefiles.sh|vendor/xiaomi/sweet-misound/setup-makefiles.sh|g' "${ANDROIDBP}" "${ANDROIDMK}" "${BOARDMK}" "${PRODUCTMK}"
+write_headers "spes"
+sed -i 's|vendor/xiaomi/spes-misound/|vendor/xiaomi/spes-misound/common|g' "${PRODUCTMK}"
+sed -i 's|device/xiaomi/spes-misound//setup-makefiles.sh|vendor/xiaomi/spes-misound/setup-makefiles.sh|g' "${ANDROIDBP}" "${ANDROIDMK}" "${BOARDMK}" "${PRODUCTMK}"
 
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
-sed -i 's|"xiaomi/sweet-misound"|"xiaomi"|g' "${ANDROIDBP}"
+sed -i 's|"xiaomi/spes-misound"|"xiaomi"|g' "${ANDROIDBP}"
 
 # Finish
 write_footers
